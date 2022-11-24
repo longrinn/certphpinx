@@ -3,6 +3,7 @@
 A simple, yet a functional way to deploy a simple containerized php + nginx website with an autorenewal of SSL certificate, which would also be created on the first run.
 
 ## Prerequisites:
++ A terminal emulator with bash, unless you already deploy from UNIX-like system.
 + docker, docker compose installed
 + A working domain name (should have A record)
 
