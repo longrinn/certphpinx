@@ -18,7 +18,6 @@ if [ "$#" -ne 2 ] || [ $1 != "-d" ]; then
 fi
 
 if [ -f "./nginx/default.conf" ]; then
-    mv ./nginx/default.conf "./nginx/$2.conf"
     sed -i "s/<-->/$2/g" "./nginx/$2.conf"
     sed -i "s/<-->/$2/g" "docker-compose.yml"
 fi
