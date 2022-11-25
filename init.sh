@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ! [ -x "$(command -v compose)" ]; then
+if ! [ -x "$(command -v docker)" ]; then
   echo -e 'Error: docker compose is not installed.\n Installing docker...'
   apt update && sudo apt -y install ca-certificates curl gnupg lsb-relese
   mkdir -p /etc/apt/keyrings
@@ -8,7 +8,6 @@ if ! [ -x "$(command -v compose)" ]; then
   echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
   apt update && apt -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-  exit 1
 fi
 
 if [ "$#" -ne 2 ] || [ $1 != "-d" ]; then
